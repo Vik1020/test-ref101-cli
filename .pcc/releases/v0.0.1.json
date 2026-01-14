@@ -1,0 +1,134 @@
+{
+  "release_id": "RELEASE_v0_0_1_hello_world_fix",
+  "version": "v0.0.1",
+  "process_id": "bugfix_simple",
+  "workflow_state": {
+    "current_phase": "DEPLOYED",
+    "started_at": "2026-01-14T08:37:20.606Z"
+  },
+  "phase_history": [
+    {
+      "phase": "RELEASE",
+      "entered_at": "2026-01-14T08:37:20.606Z",
+      "exited_at": "2026-01-14T08:37:57.563Z",
+      "validators": {
+        "current_phase_has_history": {
+          "status": "passed",
+          "reason": null
+        },
+        "process_allows_direct_pc": {
+          "status": "passed",
+          "reason": null
+        }
+      },
+      "skipped": false,
+      "skip_reason": null,
+      "metrics": {
+        "duration_seconds": 37,
+        "tokens": null,
+        "cost_usd": null
+      }
+    },
+    {
+      "phase": "PC_DEVELOPMENT",
+      "entered_at": "2026-01-14T08:37:57.563Z",
+      "exited_at": "2026-01-14T08:38:46.981Z",
+      "validators": {},
+      "skipped": false,
+      "skip_reason": null,
+      "metrics": {
+        "duration_seconds": 49,
+        "tokens": null,
+        "cost_usd": null
+      }
+    },
+    {
+      "phase": "IC_VALIDATION",
+      "entered_at": "2026-01-14T08:38:46.981Z",
+      "exited_at": "2026-01-14T08:38:54.491Z",
+      "validators": {},
+      "skipped": false,
+      "skip_reason": null,
+      "metrics": {
+        "duration_seconds": 8,
+        "tokens": null,
+        "cost_usd": null
+      }
+    },
+    {
+      "phase": "QA_TESTING",
+      "entered_at": "2026-01-14T08:38:54.491Z",
+      "exited_at": "2026-01-14T08:39:16.572Z",
+      "validators": {
+        "current_phase_has_history": {
+          "status": "passed",
+          "reason": null
+        },
+        "qa_tests_passed": {
+          "status": "passed",
+          "reason": null
+        },
+        "process_allows_direct_deploy": {
+          "status": "passed",
+          "reason": null
+        }
+      },
+      "skipped": false,
+      "skip_reason": null,
+      "metrics": {
+        "duration_seconds": 22,
+        "tokens": null,
+        "cost_usd": null
+      }
+    },
+    {
+      "phase": "DEPLOYED",
+      "entered_at": "2026-01-14T08:39:16.572Z",
+      "exited_at": null,
+      "validators": {},
+      "skipped": false,
+      "skip_reason": null
+    }
+  ],
+  "transition_log": [
+    {
+      "from": "RELEASE",
+      "to": "PC_DEVELOPMENT",
+      "timestamp": "2026-01-14T08:37:57.563Z",
+      "approval_by": null,
+      "validators_passed": [
+        "current_phase_has_history",
+        "process_allows_direct_pc"
+      ]
+    },
+    {
+      "from": "PC_DEVELOPMENT",
+      "to": "IC_VALIDATION",
+      "timestamp": "2026-01-14T08:38:46.981Z",
+      "approval_by": null,
+      "validators_passed": []
+    },
+    {
+      "from": "IC_VALIDATION",
+      "to": "QA_TESTING",
+      "timestamp": "2026-01-14T08:38:54.491Z",
+      "approval_by": null,
+      "validators_passed": []
+    },
+    {
+      "from": "QA_TESTING",
+      "to": "DEPLOYED",
+      "timestamp": "2026-01-14T08:39:16.572Z",
+      "approval_by": "user",
+      "approval_note": "QA Lead approved deployment",
+      "validators_passed": [
+        "current_phase_has_history",
+        "qa_tests_passed",
+        "process_allows_direct_deploy"
+      ]
+    }
+  ],
+  "created_at": "2026-01-14T08:37:20.606Z",
+  "updated_at": "2026-01-14T08:39:16.572Z",
+  "qa_status": "passed"
+}
