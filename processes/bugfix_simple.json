@@ -1,0 +1,58 @@
+{
+  "process_id": "bugfix_simple",
+  "version": "1.0.0",
+  "name": "Bugfix (Simple)",
+  "description": "Simplified process for bug fixes. Skips BC/AC analysis, goes straight to implementation: PC → IC → QA → DEPLOY. Use for straightforward bug fixes that don't require business context analysis.",
+  "type": "bugfix",
+  "phases": [
+    {
+      "id": "RELEASE",
+      "template": "RELEASE_TEMPLATE.md",
+      "validators": [
+        "release_state_valid_schema",
+        "release_has_problem"
+      ],
+      "skip_allowed": false
+    },
+    {
+      "id": "PC",
+      "template": "PC_CONTEXT_TEMPLATE.md",
+      "validators": [
+        "pc_has_implementation",
+        "pc_has_5_ics"
+      ],
+      "skip_allowed": false
+    },
+    {
+      "id": "IC",
+      "template": "IC_TEMPLATE.md",
+      "validators": [
+        "all_ics_validated"
+      ],
+      "skip_allowed": false
+    },
+    {
+      "id": "QA",
+      "template": "QA_TESTING_TEMPLATE.md",
+      "validators": [
+        "qa_tests_passed"
+      ],
+      "approval": {
+        "required": true,
+        "role": "qa_lead"
+      },
+      "skip_allowed": false
+    },
+    {
+      "id": "DEPLOY",
+      "skip_allowed": false
+    }
+  ],
+  "nodes": {
+    "sccu:workflow-engine": "^1.0.0",
+    "sccu:workflow-phase-templates": "^1.0.0",
+    "sccu:workflow-process-definitions": "^1.0.0",
+    "sccu:workflow-mcp-server": "^1.0.0",
+    "sccu:workflow-automation-skills": "^1.0.0"
+  }
+}

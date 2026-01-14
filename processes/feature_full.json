@@ -1,0 +1,106 @@
+{
+  "process_id": "feature_full",
+  "version": "1.0.0",
+  "name": "Feature Development (Full)",
+  "description": "Full feature development process with all phases. Use for new features with business context, architecture, and full validation. Includes BC/AC analysis, planning, implementation, infrastructure validation, QA testing, and deployment.",
+  "type": "feature_development",
+  "phases": [
+    {
+      "id": "RELEASE",
+      "template": "RELEASE_TEMPLATE.md",
+      "validators": [
+        "release_state_valid_schema",
+        "release_has_problem",
+        "release_has_scope"
+      ],
+      "skip_allowed": false
+    },
+    {
+      "id": "BC_delta",
+      "template": "BC_DELTA_TEMPLATE.md",
+      "validators": [
+        "bc_has_goals",
+        "bc_has_actors",
+        "bc_has_scenarios"
+      ],
+      "approval": {
+        "required": true,
+        "role": "product_owner"
+      },
+      "skip_allowed": false
+    },
+    {
+      "id": "AC_delta",
+      "template": "AC_DELTA_TEMPLATE.md",
+      "validators": [
+        "ac_has_use_cases",
+        "ac_based_on_bc"
+      ],
+      "approval": {
+        "required": true,
+        "role": "tech_lead"
+      },
+      "skip_allowed": false
+    },
+    {
+      "id": "PLAN_FINALIZE",
+      "template": "PLAN_FINALIZE_TEMPLATE.md",
+      "validators": [
+        "plan_has_tasks",
+        "tasks_estimated"
+      ],
+      "approval": {
+        "required": true,
+        "role": "team"
+      },
+      "skip_allowed": false
+    },
+    {
+      "id": "PC",
+      "template": "PC_CONTEXT_TEMPLATE.md",
+      "validators": [
+        "pc_has_implementation",
+        "pc_has_5_ics"
+      ],
+      "skip_allowed": false
+    },
+    {
+      "id": "IC",
+      "template": "IC_TEMPLATE.md",
+      "validators": [
+        "all_ics_validated",
+        "no_p0_violations"
+      ],
+      "skip_allowed": false
+    },
+    {
+      "id": "QA",
+      "template": "QA_TESTING_TEMPLATE.md",
+      "validators": [
+        "qa_tests_passed",
+        "qa_coverage_met"
+      ],
+      "approval": {
+        "required": true,
+        "role": "qa_lead"
+      },
+      "skip_allowed": false
+    },
+    {
+      "id": "APPLY_DELTAS",
+      "skip_allowed": false
+    },
+    {
+      "id": "DEPLOY",
+      "skip_allowed": false
+    }
+  ],
+  "nodes": {
+    "sccu:workflow-engine": "^1.0.0",
+    "sccu:workflow-phase-templates": "^1.0.0",
+    "sccu:workflow-process-definitions": "^1.0.0",
+    "sccu:workflow-mcp-server": "^1.0.0",
+    "sccu:workflow-automation-skills": "^1.0.0",
+    "sccu:architecture-domains": "^1.0.0"
+  }
+}

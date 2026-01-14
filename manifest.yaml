@@ -1,0 +1,33 @@
+version: 1.0.0
+methodology: sccu
+bundle: minimal
+initialized_at: 2026-01-14T08:19:15.037Z
+methodology_version: 1.0.0
+skills:
+  hotfix:
+    version: 1.0.0
+    checksum: sha256:6881643715b2
+    modified: false
+    source_path: namespaces/sccu/skills/hotfix
+  new-feature:
+    version: 1.0.0
+    checksum: sha256:d71c28fce4fe
+    modified: false
+    source_path: namespaces/sccu/skills/new-feature
+  new-release-auto:
+    version: 1.0.0
+    checksum: sha256:1e900493a646
+    modified: false
+    source_path: namespaces/sccu/skills/new-release-auto
+processes:
+  feature_full:
+    version: 1.0.0
+    checksum: sha256:f0aa7014ae62
+  feature_full_auto:
+    version: 1.0.0
+    checksum: sha256:6469c1cd96ba
+  bugfix_simple:
+    version: 1.0.0
+    checksum: sha256:70ceb3cd66ca
+methodology_path: /home/vikto/projects/ref101-methodology
+pcc_path: /home/vikto/projects/ref101-orchestrator

@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "pcc": {
+      "command": "node",
+      "args": [
+        "/home/vikto/projects/ref101-orchestrator/packages/mcp/dist/server.js"
+      ],
+      "env": {
+        "PROJECT_ROOT": "/tmp/test-ref101-cli"
+      }
+    }
+  }
+}

@@ -1,0 +1,126 @@
+{
+  "process_id": "feature_full_auto",
+  "version": "1.0.0",
+  "name": "Feature Development (Full, Autonomous)",
+  "description": "Full feature development process with NO human approvals. All phases execute automatically. Use ONLY when human has pre-approved the entire feature scope and trusts LLM to make all decisions.",
+  "type": "feature_development",
+  "phases": [
+    {
+      "id": "RELEASE",
+      "template": "RELEASE_TEMPLATE.md",
+      "validators": [
+        "release_state_valid_schema",
+        "release_has_problem",
+        "release_has_scope"
+      ],
+      "approval": {
+        "required": false,
+        "note": "Auto-approved: release context"
+      },
+      "skip_allowed": false
+    },
+    {
+      "id": "BC_delta",
+      "template": "BC_DELTA_TEMPLATE.md",
+      "validators": [
+        "bc_has_goals",
+        "bc_has_actors",
+        "bc_has_scenarios"
+      ],
+      "approval": {
+        "required": false,
+        "note": "Auto-approved: business context"
+      },
+      "skip_allowed": false
+    },
+    {
+      "id": "AC_delta",
+      "template": "AC_DELTA_TEMPLATE.md",
+      "validators": [
+        "ac_has_use_cases",
+        "ac_based_on_bc"
+      ],
+      "approval": {
+        "required": false,
+        "note": "Auto-approved: analytical context"
+      },
+      "skip_allowed": false
+    },
+    {
+      "id": "PLAN_FINALIZE",
+      "template": "PLAN_FINALIZE_TEMPLATE.md",
+      "validators": [
+        "plan_has_tasks",
+        "tasks_estimated"
+      ],
+      "approval": {
+        "required": false,
+        "note": "Auto-approved: task decomposition"
+      },
+      "skip_allowed": false
+    },
+    {
+      "id": "PC",
+      "template": "PC_CONTEXT_TEMPLATE.md",
+      "validators": [
+        "pc_has_implementation",
+        "pc_has_5_ics"
+      ],
+      "approval": {
+        "required": false,
+        "note": "No approval needed: implementation"
+      },
+      "skip_allowed": false
+    },
+    {
+      "id": "IC",
+      "template": "IC_TEMPLATE.md",
+      "validators": [
+        "all_ics_validated",
+        "no_p0_violations"
+      ],
+      "approval": {
+        "required": false,
+        "note": "No approval needed: IC validation"
+      },
+      "skip_allowed": false
+    },
+    {
+      "id": "QA",
+      "template": "QA_TESTING_TEMPLATE.md",
+      "validators": [
+        "qa_tests_passed",
+        "qa_coverage_met"
+      ],
+      "approval": {
+        "required": false,
+        "note": "Auto-approved: QA testing"
+      },
+      "skip_allowed": false
+    },
+    {
+      "id": "APPLY_DELTAS",
+      "approval": {
+        "required": false,
+        "note": "No approval needed: delta application"
+      },
+      "skip_allowed": false
+    },
+    {
+      "id": "DEPLOY",
+      "approval": {
+        "required": false,
+        "note": "No approval needed: deployment"
+      },
+      "skip_allowed": false
+    }
+  ],
+  "nodes": {
+    "sccu:workflow-engine": "^1.0.0",
+    "sccu:workflow-phase-templates": "^1.0.0",
+    "sccu:workflow-process-definitions": "^1.0.0",
+    "sccu:workflow-mcp-server": "^1.0.0",
+    "sccu:workflow-automation-skills": "^1.0.0",
+    "sccu:architecture-domains": "^1.0.0"
+  }
+}
